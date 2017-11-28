@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>BCIS285 Triangle Exericise</title>
+
+
+ <script src="Triangle.js"></script>
+ <label>a</label><input id="a" type="number" min="1" max="100" value="3" ></input>
+ <label>b</label><input id="b" type="number" min="1" max="100" value="4" ></input>
+ <label>c</label><input id="c" type="number" min="1" max="100" value="5" ></input>
+ <p>
+ <input id="btnRecalculate" type="button" value="recalculate" > </input>
+ <div id="divDisplay"></div>
+</head>
+
+<body>
+    <script>
+        let triangle = new Triangle( 3,3,3)
+        
+        let theDisplay = document.getElementById( 'divDisplay' )
+            
+        let recalculate = function (){
+            let a = Number( document.getElementById('a').value )
+            let b = Number( document.getElementById('b').value )
+            let c = Number( document.getElementById('c').value )
+            triangle.setSides( a,b,c )
+            theDisplay.innerHTML = triangle.result
+        }
+        let go = function () {
+
+            document.body.style.fontFamily = 'Courier New'
+            document.body.style.fontSize = 'x-large'
+            theDisplay.innerHTML = triangle.result
+            let button = document.getElementById('btnRecalculate')
+			button.addEventListener('click', recalculate, false)
+        }
+         
+        window.onload = go;
+    </script>
+</body> 
+</html>
